@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="stylesheet" href="static/menu.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="shortcut icon" href="static/photos/logo.png" />
+    <title>Menu</title>
+    
+    
+  </head>
+  <body>
+
+    <!-- START Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-info bg-info">
+      <div class="container">
+
+      <a class="navbar-brand text-white" href="templates/home.html">
+        <img src="static/photos/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        Tasker
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Image and text -->
+      
+
+
+        <div class="justify-content-right">
+        <ul class="navbar-nav mr-auto">
+
+          <li class="nav-item">
+            <a class="nav-link text-white" href="templates/ordersummary.html">Cart</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link text-white" href="templates/home.html">Logout</a>
+          </li>
+          
+        </ul>
+        </div>
+
+      </div>
+    </nav>
+    <!-- END Navigation Bar -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script src="menu.js"></script>
+    
+  
+
+    <!--START main body-->
+    <!-- Tab links -->
+
+  <div class="tab">
+    <button id="default" class="tablinks" onclick="openCity(event, 'London')">Combo Meals</button>
+    <button class="tablinks" onclick="openCity(event, 'Paris')">Meryenda Combos</button>
+    <button class="tablinks" onclick="openCity(event, 'Tokyo')">Milk Teas</button>
+  </div>
+
+
+  <!-- Tab content -->
+  <div id="London" class="tabcontent">
+    <!-------------------------------------------------------------- START OF COMBO MEALS ---------------------------------------------------------->
+    <!-------------------- START OF ROW 1 ------------------------------>
+    <ul class="ha1 row">
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          
+          <img src="static/photos/Fried_Chicken.png" alt="5 Terre" style="width:100%">
+          
+          </button>
+          <div class="info_container">
+          <p>3pc Chinese-Style Fried Chicken Rice Combo</p>
+          <p class="desc">Chinese-Style Fried Chicken with plenty of Seasonings</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          
+          <img src="static/photos/Fried_Chicken.png" alt="5 Terre" style="width:100%">
+          
+          </button>
+          <div class="info_container">
+            <p>6pc Chinese-Style Fried Chicken Rice Combo</p>
+            <p class="desc">Chinese-Style Fried Chicken with plenty of Seasonings</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Fried_Chicken.png" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+            <p>6pc Hot Chix Rice Combo</p>
+            <p class="desc">Spicy Fried Chicken with plenty of Seasonings</p>
+
+          </div>
+        </div>
+      </li>
+    </ul>
+    <!-------------------- END OF ROW 1 ------------------------------>
+
+
+
+    <!-------------------- START OF ROW 2 ------------------------------>
+    <ul class="ha2 row">
+      
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Fried_Chicken.png" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Combo Meal 4</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Fried_Chicken.png" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Combo Meal 5</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Fried_Chicken.png" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Combo Meal 6</p>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+    <!-------------------- END OF ROW 2 ------------------------------>
+
+
+    <!-------------------- START OF ROW 3 ------------------------------>
+    <ul class="ha3 row">
+        
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Fried_Chicken.png" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Combo Meal 7</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Fried_Chicken.png" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Combo Meal 8</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Fried_Chicken.png" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Combo Meal 9</p>
+          </div>
+        </div>
+      </li>
+      
+    </ul>
+    <!-------------------- END OF ROW 3 ------------------------------>
+
+
+    <!-------------------- START OF ROW 4 ------------------------------>
+    <ul class="ha4 row">
+        
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Fried_Chicken.png" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Combo Meal 10</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Fried_Chicken.png" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Combo Meal 11</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Fried_Chicken.png" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Combo Meal 12</p>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+    <!-------------------- END OF ROW 4 ------------------------------>
+
+  </div>
+  <!-------------------------------------------------------------- END OF COMBO MEALS ---------------------------------------------------------->
+
+
+  <!-------------------------------------------------------------- START OF MERYENDA MEALS ---------------------------------------------------------->
+  <div id="Paris" class="tabcontent">
+    <!-------------------- START OF ROW 1 ------------------------------>
+    <ul class="ha1 row">
+      <li>
+        <div class="polaroid">
+          
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          
+          <div class="info_container">
+          <p>2pc Burger & 1pc French Fries Combo</p>
+          <p class="desc">2pcs of burger and 1pcs French Fries with plenty of seasonings.</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+            <p>Barkada Combo</p>
+            <p class="desc">5pcs of burgers and 5pcs of French Fries with plenty of seasonings.</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+            <p>Solo Spicy Combo</p>
+            <p class="desc">1 piece Burger & 1 piece French Fries with plenty of seasonings</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <!-------------------- END OF ROW 1 ------------------------------>
+
+
+    <!-------------------- START OF ROW 2 ------------------------------>
+    <ul class="ha2 row">
+      
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Combo Meal 4</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Combo Meal 5</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Combo Meal 6</p>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+    <!-------------------- END OF ROW 2 ------------------------------>
+
+
+    <!-------------------- START OF ROW 3 ------------------------------>
+    <ul class="ha3 row">
+        
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Combo Meal 7</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Combo Meal 8</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Combo Meal 9</p>
+          </div>
+        </div>
+      </li>
+      
+    </ul>
+    <!-------------------- END OF ROW 3 ------------------------------>
+
+
+    <!-------------------- START OF ROW 4 ------------------------------>
+    <ul class="ha4 row">
+        
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Combo Meal 10</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Combo Meal 11</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Combo Meal 12</p>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+    <!-------------------- END OF ROW 4 ------------------------------>
+
+  </div>
+  <!-------------------------------------------------------------- END OF MERYENDA MEALS ---------------------------------------------------------->
+
+
+  <!-------------------------------------------------------------- START OF MILK TEA ---------------------------------------------------------->
+  <div id="Tokyo" class="tabcontent">
+    <!-------------------- START OF ROW 1 ------------------------------>
+    <ul class="ha1 row">
+      <li>
+        <div class="polaroid">
+          
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Milktea.JPG" alt="5 Terre" style="width:100%">
+          </button>
+
+          <div class="info_container">
+            <p>Milktea 1</p>
+            <p class="desc">Cookies n Cream Flavor (1 liter)</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Milktea.JPG" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+            <p>Milktea 2</p>
+            <p class="desc">Brown Sugar Milk Tea (1 liter)</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Milktea.JPG" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+            <p>Milktea 3</p>
+            <p class="desc">Matcha Smoothie (1 liter)</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <!-------------------- END OF ROW 1 ------------------------------>
+
+
+    <!-------------------- START OF ROW 2 ------------------------------>
+    <ul class="ha2 row">
+      
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Milktea.JPG" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Milktea 4</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Milktea.JPG" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Milktea 5</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Milktea.JPG" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Milktea 6</p>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+    <!-------------------- END OF ROW 2 ------------------------------>
+
+
+    <!-------------------- START OF ROW 3 ------------------------------>
+    <ul class="ha3 row">
+        
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Milktea.JPG" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Milktea 7</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Milktea.JPG" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Milktea 8</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Milktea.JPG" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Milktea 9</p>
+          </div>
+        </div>
+      </li>
+      
+    </ul>
+    <!-------------------- END OF ROW 3 ------------------------------>
+
+
+    <!-------------------- START OF ROW 4 ------------------------------>
+    <ul class="ha4 row">
+        
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Milktea.JPG" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Milktea 10</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Milktea.JPG" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Milktea 11</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart()">
+          <img src="static/photos/Milktea.JPG" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Milktea 12</p>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+    <!-------------------- END OF ROW 4 ------------------------------>
+
+  </div>
+  <!-------------------------------------------------------------- END OF MILK TEA ---------------------------------------------------------->
+
+
+
+  <div class="meals" name="meals">
+    <!--START MEALS-->
+    
+    <!--END MEALS-->
+
+    <!--START DRINKS-->
+
+    <!--END DRINKS-->
+
+    <!--START ADD-ONS-->
+    <!--END ADD-ONS-->
+
+    <!--END main body-->
+    <script>
+      document.getElementById("default").click()
+    </script>
+
+  <div id="snackbar">Added to Cart!</div>
+  </body>
+</html>

@@ -70,7 +70,28 @@ def signup():
     return render_template("signup.html")
 
 
+@task_app.route('/menu', methods=['GET'])
+def menu():  
+    return render_template("menu.html")
+
+
+@task_app.route('/about',methods=['POST','GET'])
+def about():
+    if request.method == 'POST':
+        return redirect(url_for('about'))
+    return render_template("Aboutus.html")
+
+@task_app.route('/ordersum',methods=['POST','GET'])
+def ordersum():
+    if request.method == 'POST':
+        return redirect(url_for('ordersum'))
+    return render_template("ordersummary.html")
+
+
 #--------------------render---------------------------
+
+
+
 
 @task_app.route('/regis', methods=['POST'])
 def regis():  
@@ -93,6 +114,31 @@ def regis():
         message = {"message":"Account Created Successfuly"}
         return jsonify(message)
 
+
+
+@task_app.route('/validate', methods=['POST'])
+def validate():
+    if request.method == 'POST':
+
+        json_data = request.get_json()
+        email = json_data[0]["email"]
+        password = json_data[0]["password"]
+        user = User.query.filter_by(user_email=email).first()
+        user = user_schema.dump(user)
+        
+
+        if(len(user)>0):
+            if (user['user_password'] == password):
+                message = {"message":"Successfuly logged in"}
+            else:
+                user = None
+                message = {"message":"Incorrect Credentials"}
+
+        else:
+            user = None
+            message = {"message":"Incorrect Credentials"}
+
+    return jsonify(message)
 
 
 

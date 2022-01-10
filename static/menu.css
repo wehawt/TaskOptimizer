@@ -1,5 +1,14 @@
+.menu{
+  margin-top: 50px;
+}
+.categ{
+  margin-left: 250px;
+}
+
 li{
     list-style-type: none;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 p{
@@ -42,14 +51,14 @@ p{
   overflow: auto;
   white-space: nowrap;
   margin-top: 50px;
-  margin-left: 350px;
+  margin-left: 650px;
   margin-right: 350px;
+  float: center;
 }
 
 .tab button {
   display: inline-block;
   text-align: center;
-  padding: 14px;
   text-decoration: none;
   background-color: transparent;
   border-color: transparent;

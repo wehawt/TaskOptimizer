@@ -9,17 +9,20 @@
     <link rel="stylesheet" href="static/ordersummary.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="shortcut icon" href="static/photos/logo.png" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
     <title>Cart</title>
     
     
   </head>
+
+
   <body>
 
     <!-- START Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-info bg-info">
       <div class="container">
 
-      <a class="navbar-brand text-white" href="#">
+      <a class="navbar-brand text-white">
         <img src="static/photos/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
         Tasker
       </a>
@@ -32,7 +35,9 @@
       <div class="collapse navbar-collapse justify-content-left" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link text-white" href="templates/home.html">Home <span class="sr-only">(current)</span></a>
+            <form method="POST">
+            <a class="nav-link text-white" href="{{ url_for('home') }}">Home <span class="sr-only">(current)</span></a>
+            </form>
           </li>
         </ul>
         </div>
@@ -40,7 +45,7 @@
         <div class="justify-content-right">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link text-white" href="templates/signup.html">Sign up<span class="sr-only">(current)</span></a>
+            <a class="nav-link text-white" onclick="logout()">Logout<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="templates/Aboutus.html">About</a>
@@ -55,9 +60,9 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-    <script src="ordersummary.js"></script>
+    <!-- <script src="ordersummary.js"></script> -->
 
-
+    <p class="ty" id="ty">Hi {{user}}, your order is being processed. Thank you for ordering.</p>
     <!--START main body-->
     <div class="container">
         <div class="form">
@@ -70,57 +75,36 @@
             
             <div class="card-body">
                 
-
+              {% for row in rows %}
                 <ul class="ul">
                     <li>
-                        <h6 class="item-1">Items</h6>
-                    </li>
-          
-                    <li class="price">
-                        <p>1 3pc-CSFCRC ₱200</p>
-                    </li>
-                </ul>
-
-                <ul class="ul">
+                      <p class="fooddesc">{{row['order_quantity']}}pcs. {{row['prod_id']}}</p>
+                    </li>  
                     <li>
-                        <h6 class="item-2"></h6>
-                    </li>
-          
-                    <li class="price">
-                        <p>1 2pc-BFFC ₱150</p>
+                        <p class="price">{{row['price']}}Php</p>
                     </li>
                 </ul>
-
-                <ul class="ul">
-                    <li>
-                        <h6 class="item-3"></h6>
-                    </li>
-          
-                    <li class="price">
-                        <p>1 MLKT1 ₱99</p>
-                    </li>
-                </ul>
-
+              {% endfor %}
 
                 <hr>
 
                 <ul class="ul">
                     <li>
-                        <h6 class="desc">Cart Subtotal</h6>
+                        <h6 class="item-1">Cart Subtotal</h6>
                     </li>
           
-                    <li class="price">
-                        <p>₱449</p>
+                    <li>
+                        <p>{{product_price}}Php</p>
                     </li>
                 </ul>
 
                 <ul class="ul">
                     <li>
-                        <h6 class="shipping">Shipping</h6>
+                        <h6 class="item-2">Delivery Fee</h6>
                     </li>
           
-                    <li class="price">
-                        <p>₱59</p>
+                    <li class="shipping">
+                        <p>59Php</p>
                     </li>
                 </ul>
                 <hr>
@@ -128,11 +112,11 @@
 
                 <ul class="ul">
                     <li>
-                        <h2 class="total">Order Total</h2>
+                        <h2 class="totaltxt">Total</h2>
                     </li>
           
-                    <li class="price">
-                        <p>₱508</p>
+                    <li class="totalval">
+                        <p>{{total_price}}Php</p>
                     </li>
                 </ul>
                 <hr>
@@ -140,7 +124,7 @@
 
 
                 <!--START ADD TO CART BUTTON-->
-                <button class="button" onclick="placeOrder()">Place Order</button>
+                <button class="button" onclick="deleteSummary()">Menu</button>
                 <!--END ADD TO CART BUTTON-->
 
 
@@ -157,3 +141,40 @@
     <!--END main body-->
     </body>
     </html>
+
+    <script>
+
+function deleteSummary(){
+    var message;
+      var data = [
+              {}
+          ];
+
+          $.ajax({
+          type: "DELETE",
+          url: "/deletesummary",
+          data: JSON.stringify(data),
+          contentType: "application/json",
+          dataType: 'json',
+          success: function(result) {
+              message = result.message;
+              if(message == "Deleted Successfully"){
+                window.location.href="/menu"
+              }
+
+          } 
+          });
+  }
+
+
+
+  function logout(){
+    if (confirm("Are you sure you want to logout?")) {
+      
+      window.location.href="/";}
+    else {
+      
+      window.location.href="/ordersum";}
+}
+  
+    </script>

@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="static/signup.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="shortcut icon" href="static/photos/logo.png" />
+    <link rel="shortcut icon" href="static/photos/logoTop.png" />
     <title>Create Account</title>
     
     
@@ -18,7 +18,7 @@
     <nav class="navbar navbar-expand-lg navbar-info bg-info">
       <div class="container">
 
-      <a class="navbar-brand text-white" href="templates/home.html">
+      <a class="navbar-brand text-white">
         <img src="static/photos/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
         Tasker
       </a>
@@ -31,7 +31,9 @@
       <div class="collapse navbar-collapse justify-content-left" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link text-white" href="templates/home.html">Home <span class="sr-only">(current)</span></a>
+            <form method="POST">
+            <a class="nav-link text-white" href="{{ url_for('home') }}">Home <span class="sr-only">(current)</span></a>
+            </form>
           </li>
         </ul>
         </div>
@@ -39,7 +41,9 @@
         <div class="justify-content-right">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link text-white" href="templates/Aboutus.html">About</a>
+            <form method="POST">
+            <a class="nav-link text-white" href="{{ url_for('about') }}">About</a>
+            </form>
           </li>
         </ul>
         </div>
@@ -50,7 +54,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-    <script src="signup.js"></script>
+    
 
     <!--START main body-->
     <div class="container">
@@ -115,15 +119,8 @@
                       <input type="text" name="zipcode_signup" class="form-control" id="inputZip" placeholder="Zip code">
                     </div>
                   </div>
-                  <div class="form-group">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="gridCheck">
-                      <label class="form-check-label" for="gridCheck">
-                        Check me out
-                      </label>
-                    </div>
-                  </div>
-                <button type="submit" onclick="AddAccount();" class="btn btn-primary" style="background-color: #2F2F2F;">Create Account</button>
+                  
+                <button type="submit" onclick="AddAccount();" class="btn btn-primary" style="background-color: #2F2F2F; margin-left: 250px; margin-top: 30px;">Create Account</button>
           </div>
         </div>
 
@@ -179,9 +176,10 @@
                 }
                 
              }
-             else{
-              window.location.href="/signup";
-             }
+              else{
+                alert(message)
+                window.location.href="/signup";
+              }
           } 
           });
     }

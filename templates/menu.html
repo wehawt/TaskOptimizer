@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
+    
     <link type="text/css" rel="stylesheet" href="/static/menu.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="shortcut icon" href="static/photos/logoTop.png" />
@@ -76,7 +76,7 @@
     <ul class="ha1 row">
       <li>
         <div class="polaroid">
-          <button class="btn_addtocart" onclick="addtoCart(event,'cmb1')">
+          <button class="btn_addtocart" onclick="addtoCart(event,'cmb1');">
           
           <img src="/static/photos/Fried_Chicken.png" alt="5 Terre" style="width:100%">
           
@@ -739,11 +739,14 @@ else {
 
       var quantity = prompt("Enter how many you would order: ")
       
-      var data = [
+
+      if(isNumber(quantity) == true){
+        quantity = parseInt(quantity)
+        var data = [
               {"prod_id": prod_id,
               "quantity": quantity}
           ];
-
+      
           $.ajax({
           type: "POST",
           url: "/addorder",
@@ -753,11 +756,19 @@ else {
           success: function(result) {
               message = result.message;
               if(message == "Order Placed Successfully"){
-                var txt;
+
                 alert("Order placed successfully")
                 }
+              else{
+                alert("error")
+              }
           } 
-          });
+          });}
+
+      else{
+      alert("Please enter an integer only")
+      }
+
   }
 
   function checkOut(){
@@ -820,4 +831,11 @@ function deleteSummary(){
           } 
           });
   }
+
+
+
+  function isNumber(value) {
+      var numberPattern = /^[0-9]+$/; // one or more of digits 0 to 9
+      return numberPattern.test(value);
+    }
 </script>

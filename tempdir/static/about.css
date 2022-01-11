@@ -1,4 +1,6 @@
-
+.navbar{
+  background-color: rgba(0, 0, 0, 0.5);
+}
 
 .about1{
   text-align: center;
@@ -31,6 +33,7 @@ li{
   
 .info_container {
     text-align: center;
+    background-color: rgba(0, 0, 0, 0.1);
   }
 
 .desc{

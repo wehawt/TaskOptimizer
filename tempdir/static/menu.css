@@ -1,3 +1,9 @@
+.navbar{
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+
 .menu{
   margin-top: 50px;
 }
@@ -7,6 +13,8 @@
 
 li{
     list-style-type: none;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 p{
@@ -49,8 +57,9 @@ p{
   overflow: auto;
   white-space: nowrap;
   margin-top: 50px;
-  margin-left: 350px;
+  margin-left: 650px;
   margin-right: 350px;
+  float: center;
 }
 
 .tab button {

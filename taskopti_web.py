@@ -96,7 +96,7 @@ class ProductSchema(ma.Schema):
         fields = ("prod_id", "prod_name", "price")
 
 product_schema = ProductSchema()
-product_schema = ProductSchema(many=True)
+products_schema = ProductSchema(many=True)
 
 
 #----------------CREATING ORDER TABLE---------------------
@@ -185,7 +185,7 @@ def ordersum():
     subtotal=0
     total=0
     que = Summary.query.all()
-    email = Log.query.with_entities(Log.user_email).first()[0]
+    email = Log.query.with_entities(Log.user_email).order_by(Log.log_id.desc()).first()[0]
     user_fname = User.query.with_entities(User.user_fname).filter_by(user_email = email).first()[0]
     res = summarys_schema.dump(que)
 
@@ -218,11 +218,21 @@ def regis():
         user_city = json_data[0]['city_signup']
         user_zipcode = json_data[0]['zipcode_signup']
 
-        new_user = User(user_id, user_fname, user_lname, user_email, user_password, user_number, user_address, user_city, user_zipcode)
-        db.session.add(new_user)
-        db.session.commit()
+        user = User.query.filter_by(user_email=user_email).first()
+        user = user_schema.dump(user)
+        
 
-        message = {"message":"Account Created Successfuly"}
+        if len(user)==0:
+            new_user = User(user_id, user_fname, user_lname, user_email, user_password, user_number, user_address, user_city, user_zipcode)
+            db.session.add(new_user)
+            db.session.commit()
+
+            message = {"message":"Account Created Successfuly"}
+            # message = {"message":"Email is already taken"}
+
+        else:
+            message = {"message":"Email is already taken"}
+
         return jsonify(message)
 
 
@@ -265,27 +275,37 @@ def validate():
 
 
 
-@task_app.route('/addorder', methods=['POST','GET'])
+
+
+
+@task_app.route('/addorder', methods=['GET','POST'])
 def addorder():  
     if request.method == 'POST':
         
         json_data = request.get_json()
-        order_id = datetime.now().strftime("%m%d%H%M%S")
-        user_id = Log.query.with_entities(Log.user_email).first()[0]
         productID = json_data[0]["prod_id"] #dipa sure , dagdagan ng "[0]" para ma alis sa tuple
         order_quantity = json_data[0]["quantity"]
+
+
+        order_id = datetime.now().strftime("%m%d%H%M%S")
+        user_id = Log.query.with_entities(Log.user_email).first()[0]
         date_ordered = datetime.now().strftime("%m/%d/%H/%M/%S")
 
-        price = int(order_quantity) * int(Product.query.with_entities(Product.price).filter_by(prod_id = productID)[0][0]) #dipa sure, dagdagan ng "[0]" para ma alis sa tuple
+        
+        price = Product.query.filter_by(prod_id = productID).first()
+        row = product_schema.dump(price)
+        price = row['price']
+        totalprice = order_quantity * price
 
-        new_order = Order(order_id, user_id, productID, order_quantity, date_ordered, price)
-        new_summary = Summary(order_id, user_id, productID, order_quantity, date_ordered, price)
+        # price = int(order_quantity) * int(Product.query.with_entities(Product.price).filter_by(prod_id = productID)[0][0])  #dipa sure, dagdagan ng "[0]" para ma alis sa tuple
+        new_order = Order(order_id, user_id, productID, order_quantity, date_ordered, totalprice)
         db.session.add(new_order)
+        new_summary = Summary(order_id, user_id, productID, order_quantity, date_ordered, totalprice)
         db.session.add(new_summary)
         db.session.commit()
         
         message = {"message":"Order Placed Successfully"}
-    return jsonify(message)
+        return jsonify(message)
 
 
 # checkRows = Summary.query.with_entities(Summary.summary_id).first()
@@ -298,7 +318,7 @@ def checkorder():
             message = {"message":"There is"}
         else:
             message = {"message":"There is none"}
-    return jsonify(message)
+        return jsonify(message)
 
 
 @task_app.route('/deletesummary', methods=['DELETE'])

@@ -5,21 +5,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
+    
     <link type="text/css" rel="stylesheet" href="/static/menu.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="shortcut icon" href="static/photos/logo.png" />
+    <link rel="shortcut icon" href="static/photos/logoTop.png" />
     <title>Menu</title>
     
     
   </head>
-  <body>
+  <body onload="deleteSummary()">
 
     <!-- START Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-info bg-info">
       <div class="container">
 
-      <a class="navbar-brand text-white" href="templates/home.html">
+      <a class="navbar-brand text-white">
         <img src="static/photos/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
         Tasker
       </a>
@@ -35,13 +35,11 @@
         <ul class="navbar-nav mr-auto">
 
           <li class="nav-item">
-            <form action="/ordersum" method="POST">
-              <a class="nav-link text-white" href="{{ url_for('ordersum') }}">Cart</a>
-            </form>
+            <a class="nav-link text-white" onclick="checkOut()" style="cursor:pointer;">Check Out</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link text-white" href="templates/home.html">Logout</a>
+            <a class="nav-link text-white" onclick="logout()">Logout</a>
           </li>
           
         </ul>
@@ -64,6 +62,10 @@
     <button id="default" class="tablinks" onclick="openCity(event, 'London')">Combos</button>
     <button class="tablinks" onclick="openCity(event, 'Paris')">Rice Meals</button>
     <button class="tablinks" onclick="openCity(event, 'Tokyo')">Chicken Wings</button>
+    <button class="tablinks" onclick="openCity(event, 'Fries')">Fries</button>
+    <button class="tablinks" onclick="openCity(event, 'Iced Drinks')">Iced Drinks</button>
+    <button class="tablinks" onclick="openCity(event, 'Hot Drinks')">Hot Drinks</button>
+    <button class="tablinks" onclick="openCity(event, 'Milktea')">Milktea</button>
   </div>
 
 
@@ -74,37 +76,37 @@
     <ul class="ha1 row">
       <li>
         <div class="polaroid">
-          <button class="btn_addtocart" onclick="addtoCart()">
+          <button class="btn_addtocart" onclick="addtoCart(event,'cmb1');">
           
           <img src="/static/photos/Fried_Chicken.png" alt="5 Terre" style="width:100%">
           
           </button>
           <div class="info_container">
-          <p>Combo 1</p>
+          <p>Combo 1 250Php</p>
           <p class="desc">3 Barkada Fries (Cheese, Barbecue, Sour Cream)</p>
           </div>
         </div>
       </li>
       <li>
         <div class="polaroid">
-          <button class="btn_addtocart" onclick="addtoCart()">
+          <button class="btn_addtocart" onclick="addtoCart(event,'cmb2')">
           
           <img src="/static/photos/Fried_Chicken.png" alt="5 Terre" style="width:100%">
           
           </button>
           <div class="info_container">
-            <p>Combo 2</p>
+            <p>Combo 2 225Php</p>
             <p class="desc">1 Barkada Flavored Fries, 20pcs Pork Siomai</p>
           </div>
         </div>
       </li>
       <li>
         <div class="polaroid">
-          <button class="btn_addtocart" onclick="addtoCart()">
+          <button class="btn_addtocart" onclick="addtoCart(event,'cmb3')">
           <img src="/static/photos/Fried_Chicken.png" alt="5 Terre" style="width:100%">
           </button>
           <div class="info_container">
-            <p>Combo 3</p>
+            <p>Combo 3 220Php</p>
             <p class="desc">30pcs Siomai (10pcs each Pork, Siomai, Japanese)</p>
 
           </div>
@@ -120,33 +122,33 @@
       
       <li>
         <div class="polaroid">
-          <button class="btn_addtocart" onclick="addtoCart()">
+          <button class="btn_addtocart" onclick="addtoCart(event,'cmb4')">
           <img src="/static/photos/Fried_Chicken.png" alt="5 Terre" style="width:100%">
           </button>
           <div class="info_container">
-          <p>Combo 4</p>
+          <p>Combo 4 215Php</p>
           <p class="desc">4pcs Cutea Burger, 10pcs Pork Siomai</p>
           </div>
         </div>
       </li>
       <li>
         <div class="polaroid">
-          <button class="btn_addtocart" onclick="addtoCart()">
+          <button class="btn_addtocart" onclick="addtoCart(event,'cmb5')">
           <img src="/static/photos/Fried_Chicken.png" alt="5 Terre" style="width:100%">
           </button>
           <div class="info_container">
-          <p>Combo 5</p>
+          <p>Combo 5 230Php</p>
           <p class="desc">4pcs Cutea Burger, 1 Barkada Flavored Fries</p>
           </div>
         </div>
       </li>
       <li>
         <div class="polaroid">
-          <button class="btn_addtocart" onclick="addtoCart()">
+          <button class="btn_addtocart" onclick="addtoCart(event,'cmb6')">
           <img src="/static/photos/Fried_Chicken.png" alt="5 Terre" style="width:100%">
           </button>
           <div class="info_container">
-          <p>Combo 6</p>
+          <p>Combo 6 225Php</p>
           <p class="desc">6pcs Cutea Burger</p>
           </div>
         </div>
@@ -161,22 +163,22 @@
         
       <li>
         <div class="polaroid">
-          <button class="btn_addtocart" onclick="addtoCart()">
+          <button class="btn_addtocart" onclick="addtoCart(event,'cmb7')">
           <img src="/static/photos/Fried_Chicken.png" alt="5 Terre" style="width:100%">
           </button>
           <div class="info_container">
-          <p>Combo 7</p>
+          <p>Combo 7 220Php</p>
           <p class="desc">2pcs Cutea Burger, 1 Barkada Flavored Fries, 10pcs Pork Siomai</p>
           </div>
         </div>
       </li>
       <li>
         <div class="polaroid">
-          <button class="btn_addtocart" onclick="addtoCart()">
+          <button class="btn_addtocart" onclick="addtoCart(event,'cmb8')">
           <img src="/static/photos/Fried_Chicken.png" alt="5 Terre" style="width:100%">
           </button>
           <div class="info_container">
-          <p>Combo 8</p>
+          <p>Combo 8 380Php</p>
           <p class="desc">6pcs Cheesy Burger</p>
           </div>
         </div>
@@ -193,34 +195,34 @@
       <li>
         <div class="polaroid">
           
-          <button class="btn_addtocart" onclick="addtoCart()">
+          <button class="btn_addtocart" onclick="addtoCart(event,'cm')">
           <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
           </button>
           
           <div class="info_container">
-          <p>Chicken Meal</p>
+          <p>Chicken Meal 108Php</p>
           <p class="desc">Fried Chicken, Egg and 1 Cup of Garlic Rice.</p>
           </div>
         </div>
       </li>
       <li>
         <div class="polaroid">
-          <button class="btn_addtocart" onclick="addtoCart()">
+          <button class="btn_addtocart" onclick="addtoCart(event,'pcm')">
           <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
           </button>
           <div class="info_container">
-            <p>Porkchop Meal</p>
+            <p>Porkchop Meal 108Php</p>
             <p class="desc">Fried Porkchop, Egg and 1 Cup of Garlic Rice.</p>
           </div>
         </div>
       </li>
       <li>
         <div class="polaroid">
-          <button class="btn_addtocart" onclick="addtoCart()">
+          <button class="btn_addtocart" onclick="addtoCart(event,'hm')">
           <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
           </button>
           <div class="info_container">
-            <p>Hotdog Meal</p>
+            <p>Hotdog Meal 95Php</p>
             <p class="desc">2pcs Jumbo Hotdog, Egg and 1 Cup of Garlic Rice.</p>
           </div>
         </div>
@@ -234,22 +236,22 @@
       
       <li>
         <div class="polaroid">
-          <button class="btn_addtocart" onclick="addtoCart()">
+          <button class="btn_addtocart" onclick="addtoCart(event,'hem')">
           <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
           </button>
           <div class="info_container">
-          <p>Ham & Egg Meal</p>
+          <p>Ham & Egg Meal 90Php</p>
           <p class="desc">2pcs. Ham, Egg and 1 Cup of Garlic Rice.</p>
           </div>
         </div>
       </li>
       <li>
         <div class="polaroid">
-          <button class="btn_addtocart" onclick="addtoCart()">
+          <button class="btn_addtocart" onclick="addtoCart(event,'psm')">
           <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
           </button>
           <div class="info_container">
-          <p>Pork Siomai Meal</p>
+          <p>Pork Siomai Meal 90Php</p>
           <p class="desc">5pcs. Pork Siomai, Egg and 1 Cup of Garlic Rice.</p>
           </div>
         </div>
@@ -269,34 +271,34 @@
       <li>
         <div class="polaroid">
           
-          <button class="btn_addtocart" onclick="addtoCart()">
+          <button class="btn_addtocart" onclick="addtoCart(event,'6pws')">
           <img src="static/photos/Milktea.JPG" alt="5 Terre" style="width:100%">
           </button>
 
           <div class="info_container">
-            <p>6 Pcs Chicken Wings</p>
+            <p>6 Pcs Chicken Wings 168Php</p>
             <p class="desc">Solo Flavor e.g.(Sweet BBQ, Lemon Pepper, Buffalo)</p>
           </div>
         </div>
       </li>
       <li>
         <div class="polaroid">
-          <button class="btn_addtocart" onclick="addtoCart()">
+          <button class="btn_addtocart" onclick="addtoCart(event,'12pws')">
           <img src="static/photos/Milktea.JPG" alt="5 Terre" style="width:100%">
           </button>
           <div class="info_container">
-            <p>12 Pcs Chicken Wings</p>
+            <p>12 Pcs Chicken Wings 328Php</p>
             <p class="desc">Solo Flavor e.g.(Sweet BBQ, Lemon Pepper, Buffalo)</p>
           </div>
         </div>
       </li>
       <li>
         <div class="polaroid">
-          <button class="btn_addtocart" onclick="addtoCart()">
+          <button class="btn_addtocart" onclick="addtoCart(event,'18pws')">
           <img src="static/photos/Milktea.JPG" alt="5 Terre" style="width:100%">
           </button>
           <div class="info_container">
-            <p>18 Pcs Chicken Wings</p>
+            <p>18 Pcs Chicken Wings 488Php</p>
               <p class="desc">Solo Flavor e.g.(Sweet BBQ, Lemon Pepper, Buffalo)</p>
           </div>
         </div>
@@ -310,33 +312,33 @@
       
       <li>
         <div class="polaroid">
-          <button class="btn_addtocart" onclick="addtoCart()">
+          <button class="btn_addtocart" onclick="addtoCart(event,'6pwc')">
           <img src="static/photos/Milktea.JPG" alt="5 Terre" style="width:100%">
           </button>
           <div class="info_container">
-          <p>6 Pcs Wing Combo</p>
+          <p>6 Pcs Wing Combo 168Php</p>
           <p class="desc">Combo Flavors e.g.(Sweet BBQ & Lemon Pepper)</p>
           </div>
         </div>
       </li>
       <li>
         <div class="polaroid">
-          <button class="btn_addtocart" onclick="addtoCart()">
+          <button class="btn_addtocart" onclick="addtoCart(event,'12pwc')">
           <img src="static/photos/Milktea.JPG" alt="5 Terre" style="width:100%">
           </button>
           <div class="info_container">
-          <p>12 Pcs Wing Combo</p>
+          <p>12 Pcs Wing Combo 328Php</p>
           <p class="desc">Combo Flavors e.g.(Sweet BBQ & Buffalo)</p>
           </div>
         </div>
       </li>
       <li>
         <div class="polaroid">
-          <button class="btn_addtocart" onclick="addtoCart()">
+          <button class="btn_addtocart" onclick="addtoCart(event,'18pwc')">
           <img src="static/photos/Milktea.JPG" alt="5 Terre" style="width:100%">
           </button>
           <div class="info_container">
-          <p>18 Pcs Wing Combo</p>
+          <p>18 Pcs Wing Combo 488Php</p>
           <p class="desc">Combo Flavors e.g.(Lemon Pepper & Buffalo)</p>
           </div>
         </div>
@@ -349,8 +351,339 @@
   <!-------------------------------------------------------------- END OF CHICKEN WINGS ---------------------------------------------------------->
 
 
+
+  <!-------------------------------------------------------------- START OF FRIES ---------------------------------------------------------->
+  <div id="Fries" class="tabcontent">
+
+    <!-------------------- START OF ROW 1 ------------------------------>
+    <ul class="ha1 row">
+      <li>
+        <div class="polaroid">
+          
+          <button class="btn_addtocart" onclick="addtoCart(event,'cof')">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          
+          <div class="info_container">
+          <p>Cheesy Overload Fries 100Php</p>
+          <p class="desc">Barkada Fries, Drizzled with Cheese sauce.</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart(event,'bof')">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+            <p>Beef Overload Fries 110Php</p>
+            <p class="desc">Barkada Fries, Drizzled with Cheese sauce and Beef</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart(event,'of')">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+            <p>Overloaded Fries 120Php</p>
+            <p class="desc">2pcs Jumbo Hotdog, Egg and 1 Cup of Garlic Rice.</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <!-------------------- END OF ROW 1 ------------------------------>
+
+
+    <!-------------------- START OF ROW 2 ------------------------------>
+    <ul class="ha2 row">
+      
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart(event,'cf')">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Cheese Fries 90Php</p>
+          <p class="desc">Barkada Fries with Cheese Flavor</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart(event,'bf')">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Barbecue Fries 90Php</p>
+          <p class="desc">Barkada Fries with Barbecue Flavor</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart(event,'scf')">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Sour Cream Fries 90Php</p>
+          <p class="desc">Barkada Fries with Sour Cream Flavor</p>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+    <!-------------------- END OF ROW 2 ------------------------------>
+
+  </div>
+  <!-------------------------------------------------------------- END OF FRIES ---------------------------------------------------------->
+
+
+
+  <!-------------------------------------------------------------- START OF ICED DRINKS ---------------------------------------------------------->
+  <div id="Iced Drinks" class="tabcontent">
+
+    <!-------------------- START OF ROW 1 ------------------------------>
+    <ul class="ha1 row">
+      <li>
+        <div class="polaroid">
+          
+          <button class="btn_addtocart" onclick="addtoCart(event,'icm')">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          
+          <div class="info_container">
+          <p>Iced Caramel Macchiato 90Php</p>
+          <p class="desc">Grande, Freshly Brewed Coffee with Caramel Syrup served in Ice</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart(event,'im')">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+            <p>Iced Mocha 90Php</p>
+            <p class="desc">Grande, Freshly Brewed Coffee with Chocolate Syrup served in Ice</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart(event,'il')">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+            <p>Iced Latte 80Php</p>
+            <p class="desc">Grande, Freshly Brewed Coffee, Milk and Latte Flavor served Ice</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <!-------------------- END OF ROW 1 ------------------------------>
+
+
+    <!-------------------- START OF ROW 2 ------------------------------>
+    <ul class="ha2 row">
+      
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart(event,'iccf')">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Iced Coffee 75Php</p>
+          <p class="desc">Grande, Freshly Brewed Black Coffee and Milk served in Ice</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart(event,'ibc')">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Iced Black Coffee 70Php</p>
+          <p class="desc">Grande, Freshly Brewed Black Coffee served in Ice</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart(event,'icch')">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Iced Choco 75Php</p>
+          <p class="desc">Grande, Special Chocolate Drink with Chocolate Syrup</p>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+    <!-------------------- END OF ROW 2 ------------------------------>
+
+  </div>
+  <!-------------------------------------------------------------- END OF ICED DRINKS ---------------------------------------------------------->
   
 
+
+  <!-------------------------------------------------------------- START OF HOT DRINKS ---------------------------------------------------------->
+  <div id="Hot Drinks" class="tabcontent">
+
+    <!-------------------- START OF ROW 1 ------------------------------>
+    <ul class="ha1 row">
+      <li>
+        <div class="polaroid">
+          
+          <button class="btn_addtocart" onclick="addtoCart(event,'hcm')">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          
+          <div class="info_container">
+          <p>Hot Caramel Macchiato 65Php</p>
+          <p class="desc">12oz, Freshly Brewed Coffee</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart(event,'hmocha')">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+            <p>Hot Mocha 65Php</p>
+            <p class="desc">12oz, Freshly Brewed Coffee</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart(event,'hcffe')">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+            <p>Hot Coffee 55Php</p>
+            <p class="desc">12oz, Freshly Brewed Black Coffee</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <!-------------------- END OF ROW 1 ------------------------------>
+
+
+    <!-------------------- START OF ROW 2 ------------------------------>
+    <ul class="ha2 row">
+      
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart(event,'hchc')">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Hot Choco 65Php</p>
+          <p class="desc">12oz, Hot Special Chocolate Drink</p>
+          </div>
+        </div>
+      </li>
+      
+
+    </ul>
+    <!-------------------- END OF ROW 2 ------------------------------>
+
+  </div>
+  <!-------------------------------------------------------------- END OF HOT DRINKS ---------------------------------------------------------->
+
+
+  <!-------------------------------------------------------------- START OF MILKTEA ---------------------------------------------------------->
+  <div id="Milktea" class="tabcontent">
+
+    <!-------------------- START OF ROW 1 ------------------------------>
+    <ul class="ha1 row">
+      <li>
+        <div class="polaroid">
+          
+          <button class="btn_addtocart" onclick="addtoCart(event,'clmt')">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          
+          <div class="info_container">
+          <p>Classic Milktea 75Php</p>
+          <p class="desc">Brewed Black Tea, Milk and Flavor</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart(event,'crmlmt')">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+            <p>Caramel Milktea 75Php</p>
+            <p class="desc">Brewed Black Tea, Milk and Caramel Flavor</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart(event,'chrclmt')">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+            <p>Charcoal Milktea 75Php</p>
+            <p class="desc">Brewed Black Tea, Milk and Charcoal Flavor</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <!-------------------- END OF ROW 1 ------------------------------>
+
+
+    <!-------------------- START OF ROW 2 ------------------------------>
+    <ul class="ha2 row">
+      
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart(event,'chsckmt')">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Cheesecake Milktea 75Php</p>
+          <p class="desc">Brewed Black Tea, Milk and Cheesecake Flavor</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart(event,'chcmt')">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Chocolate Milktea 75Php</p>
+          <p class="desc">Brewed Black Tea, Milk and Chocolate Flavor</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="polaroid">
+          <button class="btn_addtocart" onclick="addtoCart(event,'c&cmt')">
+          <img src="static/photos/Meryenda.jpg" alt="5 Terre" style="width:100%">
+          </button>
+          <div class="info_container">
+          <p>Cookies and Cream Milktea 75Php</p>
+          <p class="desc">Brewed Black Tea, Milk and Cookies & Cream Flavor</p>
+          </div>
+        </div>
+      </li>
+      
+
+    </ul>
+    <!-------------------- END OF ROW 2 ------------------------------>
+
+  </div>
+  <!-------------------------------------------------------------- END OF MILKTEA ---------------------------------------------------------->
   <div id="snackbar">Added to Cart!</div>
   </body>
 </html>
@@ -397,4 +730,112 @@ else {
   //some code
 }
 }
+
+
+
+  function addtoCart(evt,prod_id){
+    var message;
+
+
+      var quantity = prompt("Enter how many you would order: ")
+      
+
+      if(isNumber(quantity) == true){
+        quantity = parseInt(quantity)
+        var data = [
+              {"prod_id": prod_id,
+              "quantity": quantity}
+          ];
+      
+          $.ajax({
+          type: "POST",
+          url: "/addorder",
+          data: JSON.stringify(data),
+          contentType: "application/json",
+          dataType: 'json',
+          success: function(result) {
+              message = result.message;
+              if(message == "Order Placed Successfully"){
+
+                alert("Order placed successfully")
+                }
+              else{
+                alert("error")
+              }
+          } 
+          });}
+
+      else{
+      alert("Please enter an integer only")
+      }
+
+  }
+
+  function checkOut(){
+    var message;
+
+      var data = [
+              {}
+          ];
+
+          $.ajax({
+          type: "POST",
+          url: "/checkorder",
+          data: JSON.stringify(data),
+          contentType: "application/json",
+          dataType: 'json',
+          success: function(result) {
+              message = result.message;
+              if(message == "There is"){
+
+                if (confirm("Are you sure you want to checkout now?")) {
+                  window.location.href="/ordersum";} 
+                }
+              
+              else{
+                alert("Please order first before checking out.")
+              }
+          } 
+          });
+    
+
+
+
+}
+
+
+function logout(){
+    if (confirm("Are you sure you want to logout?")) {
+      
+      window.location.href="/";}
+}
+
+function deleteSummary(){
+    var message;
+      var data = [
+              {}
+          ];
+
+          $.ajax({
+          type: "DELETE",
+          url: "/deletesummary",
+          data: JSON.stringify(data),
+          contentType: "application/json",
+          dataType: 'json',
+          success: function(result) {
+              message = result.message;
+              if(message == "Deleted Successfully"){
+                
+              }
+
+          } 
+          });
+  }
+
+
+
+  function isNumber(value) {
+      var numberPattern = /^[0-9]+$/; // one or more of digits 0 to 9
+      return numberPattern.test(value);
+    }
 </script>
